@@ -1,0 +1,22 @@
+O que é uma estrutura de dados heterogêneos? 
+
+Definição
+
+Segundo um material de classificação de estruturas de dados: “the data structure can be … heterogeneous: if the components are not from the same type.”
+Outro texto afirma: “if the elements are of different types … Example: structure” (em referência a C/C++ “struct”)
+Uma definição online mais geral: “Heterogeneous Data Structures can contain different types of data. For instance, a dictionary … or a pandas data frame can have columns with different data types.”
+
+Características principais
+
+Flexibilidade: permite agrupar dados de naturezas distintas (por exemplo inteiros, strings, booleanos) dentro de uma única estrutura.
+Modelagem mais rica para “entidades” compostas: por exemplo, um registro “Aluno” pode ter nome (string), idade (inteiro), notas (vetor de float) — esses são tipos diferentes.
+Geralmente requer manejo mais cuidadoso: porque cada elemento pode ter tipo, tamanho e comportamento diferentes, o que pode implicar necessidade de tratamento especial (checagem de tipo, casting, etc.).
+Exemplos típicos:
+
+Em C: struct Aluno { int id; char nome[50]; float nota; } — os membros têm tipos distintos
+Em linguagens de alto nível: um DataFrame no pandas (Python) que tem colunas com tipos diferentes (string, int, float) — considerado uma estrutura heterogênea.
+
+REFERENCIAS 
+“Classification of data structures” (pdf) — define claramente a distinção entre “homogeneous” e “heterogeneous” no contexto de componentes de tipo.
+Material “Data Structure” (pdf) — afirma que “In heterogeneous data structure the elements are of different types. Example: structure”.
+Artigo online “Difference Between Heterogeneous and Homogeneous Data Structures” — explica de forma didática o que é cada tipo, com exemplos de estruturas heterogêneas.
