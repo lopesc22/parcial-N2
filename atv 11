@@ -1,0 +1,55 @@
+Explique o funcionamento do algoritmo de busca binária e sequencial. 
+
+Busca Sequencial (ou Linear)
+Funcionamento
+O algoritmo percorre cada elemento da lista ou vetor, um por um, comparando com o valor buscado.
+Se o elemento procurado for encontrado, a busca retorna sua posição.
+Se percorrer toda a lista sem encontrar o valor, a busca retorna que o elemento não existe.
+
+Características
+Não exige que a lista esteja ordenada.
+Complexidade:
+Melhor caso: O(1) (elemento está na primeira posição)
+Pior caso: O(n) (elemento está no final ou não existe)
+Simples de implementar, mas ineficiente para listas grandes.
+
+def busca_sequencial(lista, x):
+    for i in range(len(lista)):
+        if lista[i] == x:
+            return i  # posição encontrada
+    return -1  # não encontrado
+
+Busca Binária
+Funcionamento
+A lista precisa estar ordenada.
+O algoritmo compara o elemento do meio do vetor com o valor buscado.
+Dependendo da comparação:
+Se for menor, descarta a metade esquerda e continua na direita.
+Se for maior, descarta a metade direita e continua na esquerda.
+O processo se repete até encontrar o elemento ou até que o intervalo de busca seja vazio.
+
+Características
+Mais eficiente que a busca sequencial em listas grandes.
+
+Complexidade:
+Melhor caso: O(1)
+Pior caso: O(log n)
+Necessita que os dados estejam ordenados previamente.
+def busca_binaria(lista, x):
+    inicio, fim = 0, len(lista)-1
+    while inicio <= fim:
+        meio = (inicio + fim) // 2
+        if lista[meio] == x:
+            return meio
+        elif lista[meio] < x:
+            inicio = meio + 1
+        else:
+            fim = meio - 1
+    return -1
+
+REFERENCIAS
+GeeksforGeeks – Binary Search vs Linear Search: geeksforgeeks.org
+Wikipedia – Binary Search: en.wikipedia.org
+Wikipedia – Linear Search: en.wikipedia.org
+UFPR – Estruturas de Dados: Aula sobre algoritmos de busca: inf.ufpr.br
+
