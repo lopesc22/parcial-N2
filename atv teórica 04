@@ -1,0 +1,13 @@
+O que é uma estrutura de dados homogêneos? 
+
+Características principais
+
+Uniformidade: todos os elementos têm o mesmo tipo de dado.
+A uniformidade facilita cálculos de localização dos elementos em memória (por exemplo índices, deslocamentos) porque cada elemento ocupa o mesmo tamanho.
+Exemplos típicos: um vetor (array) de inteiros, uma matriz de floats.
+
+REFERENCIAS 
+
+“Data Structure Preliminaries” no livro/trecho da Data Structures and Algorithms Using Python (Cambridge University Press) define: “the data structure whose elements are similar in nature, i.e., belong to a specific data type, is known as homogeneous data structure”.
+Um documento de aula (“Data Structures”) define: “homogeneous = all their parts are the same type … Homogeneous data structures are more restricted …”.
+Um artigo de classificação de estruturas de dados menciona: “In Homogeneous data structures store elements of the same data type … Examples … arrays”.
