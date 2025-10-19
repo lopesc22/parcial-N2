@@ -1,0 +1,24 @@
+Qual a vantagem das listas sobre os vetores em termos de consumo de memória? 
+Exemplifique. 
+
+Vantagem das listas sobre vetores em termos de memória
+
+Uma das grandes vantagens das listas é que a alocação de memória pode acontecer dinamicamente, conforme a necessidade real de armazenamento, evitando reservar de antemão um bloco maior do que se vai usar. Por exemplo, em uma lista ligada cada nó é criado conforme se adiciona, então “você aloca apenas o que realmente precisa”.
+Por outro lado, vetores (arrays) normalmente exigem reservar um bloco contíguo de memória, e se o programador “superestimar” o tamanho necessário, haverá espaço não utilizado que está “ocupando” memória desnecessariamente. Isso faz com que, em cenários de quantidade de dados incerta, uma lista possa usar menos memória “desperdiçada”.
+Também, em memória fragmentada ou sistemas com limitação de grandes blocos contínuos, usar um vetor grande pode falhar por não encontrar um bloco contínuo suficientemente grande — enquanto uma lista ligada não exige que todos os nós estejam em blocos contínuos
+
+Exemplo simples
+
+Imagine que você tem uma estrutura de dados para armazenar “eventos” e ao longo do tempo não sabe quantos serão adicionados — pode acabar sendo 10, 1000, ou 10 000.
+Se você usar um vetor e decidir “vamos reservar espaço para até 10 000 eventos” para garantir futuro crescimento, você pode acabar usando muito mais memória do que realmente será usada (por exemplo se só houver 500 eventos na prática).
+Se você usar uma lista ligada, você poderá alocar cada nó conforme precisa — se só houver 500 eventos, você terá criado ~500 nós. Não foi reservado “por segurança” espaço para 10 000 itens, então não há tão grande desperdício de espaço.
+
+Observações importantes (trade-offs)
+Apesar dessa vantagem, listas também têm desvantagens de memória: cada nó geralmente precisa de ponteiro(s) extras (por exemplo “próximo nó”) além dos dados, o que significa overhead por nó.
+Se você sabe exatamente ou aproximadamente o número de elementos e não vai modificar muito o tamanho, um vetor pode acabar sendo mais eficiente (menos overhead por elemento, melhor acesso aleatório e melhor uso de cache).
+
+REFERENCIAS 
+
+GeeksforGeeks: Apresenta uma comparação entre listas ligadas e vetores, destacando as vantagens e desvantagens de cada estrutura de dados.
+YouCademy: Explora as diferenças entre listas ligadas e vetores, enfatizando aspectos como alocação de memória e eficiência.
+Stack Overflow: Discussões sobre quando utilizar listas ligadas em vez de vetores, considerando aspectos de desempenho e consumo de memória.
