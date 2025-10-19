@@ -1,0 +1,25 @@
+O que é uma lista duplamente encadeada? Apresente um diagrama para ilustrar 
+essa estrutura de dados. 
+
+Uma lista duplamente encadeada é uma estrutura de dados linear composta por uma sequência de nós, onde cada nó contém:
+Dado: informação armazenada no nó.
+Ponteiro para o próximo nó: aponta para o próximo nó na sequência.
+
+Diagrama ilustrativo
+Abaixo está um diagrama representando uma lista duplamente encadeada com três nós:
+NULL ← [ Dado | Anterior | Próximo ] ↔ [ Dado | Anterior | Próximo ] ↔ [ Dado | Anterior | Próximo ] → NULL
+Anteriores: apontam para o nó anterior.
+Próximos: apontam para o próximo nó.
+
+Características principais
+
+Navegação bidirecional: permite percorrer a lista tanto do início para o fim quanto do fim para o início
+Inserção e remoção eficientes: operações podem ser realizadas em qualquer posição da lista com complexidade O(1), desde que se tenha um ponteiro para o nó desejado.
+Maior uso de memória: cada nó requer dois ponteiros adicionais (anterior e próximo), aumentando o consumo de memória em comparação com listas simplesmente encadeadas.
+
+REFERENCIAS
+
+Wikipedia: Apresenta uma visão geral sobre listas duplamente encadeadas, incluindo suas características e exemplos de implementação
+UFPR: Oferece material didático detalhado sobre listas duplamente encadeadas, abordando sua estrutura, operações e implementações.
+IME-USP: Fornece uma introdução teórica às listas encadeadas, com exemplos práticos e diagramas explicativos.
+
