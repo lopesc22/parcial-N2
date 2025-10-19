@@ -1,0 +1,19 @@
+O que é um ponteiro?
+
+O que isso significa
+
+Em vez de armazenar diretamente um valor (como um inteiro ou caractere), um ponteiro armazena a localização (endereço) onde esse valor está guardado na memória.
+Com essa localização, você pode acessar ou modificar o valor armazenado naquele endereço usando o operador de desreferência (por exemplo, * em C).
+int *ptr;
+Aqui ptr é um ponteiro para inteiro, ou seja, pode armazenar o endereço de uma variável do tipo int
+Alguns pontos importantes
+
+O tipo do ponteiro importa: por exemplo, um ponteiro para int saberá tratar o valor no endereço como inteiro.
+Se você usar um ponteiro que não foi inicializado ou que aponta para um local inválido, pode ocorrem erros graves (como “segmentation fault”).
+ponteiros são muito úteis para várias tarefas: acesso dinâmico à memória, construção de estruturas de dados (listas ligadas, árvores), passagem eficiente de parâmetros para funções etc.
+
+REFERENCIAS 
+Cppreference — “Pointer declaration” define : “Pointer is a type of an object that refers to a function or an object of another type…”
+GeeksforGeeks — “Pointers in C” afirma : “A pointer is a variable that stores the memory address of another variable.”
+TutorialsPoint — “What is a Pointer in C?” descreve : “C pointer is the derived data type that is used to store the address of another variable…”
+W3Schools — “C Pointers” afirma : “A pointer is a variable that stores the memory address of another variable as its value.”
