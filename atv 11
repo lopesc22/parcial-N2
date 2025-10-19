@@ -1,0 +1,80 @@
+ Explique o funcionamento dos seguintes algoritmos de ordenação: Insertion sort, 
+Selection sort, Merge sort, Count sort, Quicksort.
+
+Insertion Sort (Ordenação por Inserção)
+FUNCIONAMENTO
+Percorre a lista do segundo elemento até o final.
+Cada elemento é comparado com os elementos anteriores e inserido na posição correta.
+É como se você estivesse “organizando cartas na mão”: pega uma carta e a coloca na posição correta entre as já ordenadas.
+
+Características
+Complexidade:
+Melhor caso: O(n) (lista já ordenada)
+Pior caso: O(n²) (lista invertida)
+Estável e in-place (não usa memória extra significativa).
+Ideal para listas pequenas ou quase ordenadas.
+
+Selection Sort (Ordenação por Seleção)
+Funcionamento
+Divide a lista em parte ordenada e parte não ordenada.
+Repetidamente seleciona o menor elemento da parte não ordenada e troca
+com o primeiro elemento dessa parte.
+Continua até que toda a lista esteja ordenada.
+
+Características
+
+Complexidade:
+Sempre O(n²), independente do estado inicial.
+Não é estável (as posições relativas de elementos iguais podem mudar).
+Fácil de implementar, mas ineficiente para listas grandes.
+
+Merge Sort (Ordenação por Intercalação)
+Funcionamento
+Divide recursivamente a lista em duas metades até que cada sublista tenha apenas um elemento.
+Depois, intercala as sublistas ordenadas de forma que o resultado final fique ordenado.
+ 
+Características
+Complexidade: O(n log n) no melhor, médio e pior caso.
+Estável (mantém a ordem relativa de elementos iguais).
+Requer memória extra proporcional ao tamanho da lista (não é in-place).
+Ideal para listas grandes
+
+Counting Sort (Ordenação por Contagem)
+Funcionamento
+Conta quantas vezes cada valor aparece na lista.
+Usa essa contagem para colocar cada elemento na posição correta no array final.
+
+Características
+
+Complexidade: O(n + k), onde k é o maior valor presente na lista.
+Estável e eficiente para listas com valores inteiros em um intervalo limitado.
+Não compara elementos (não é um algoritmo de comparação).
+Pode consumir mais memória se k for muito grande.
+
+QuickSort (Ordenação Rápida)
+Funcionamento
+Escolhe um pivô (um elemento da lista).
+Reorganiza os elementos de forma que:
+Menores que o pivô fiquem à esquerda
+Maiores que o pivô fiquem à direita
+Recursivamente aplica o mesmo processo nas duas sublistas.
+
+Características
+
+Complexidade:
+
+Melhor e médio caso: O(n log n)
+Pior caso: O(n²) (quando a lista já está ordenada e se escolher sempre o menor ou maior elemento como pivô)
+In-place (usa pouca memória extra)
+Não estável por padrão.
+Geralmente muito rápido na prática para listas grandes.
+
+REFERENCIAS 
+GeeksforGeeks – Sorting Algorithms:
+https://www.geeksforgeeks.org/sorting-algorithms/?utm_source=chatgpt.com
+Wikipedia – Sorting Algorithm:
+https://en.wikipedia.org/wiki/Sorting_algorithm
+UFPR – Estruturas de Dados: Material sobre algoritmos de ordenação:
+https://www.inf.ufpr.br/gregio/CI1001/Ordenacao.pdf?utm_source=chatgpt.com
+Introduction to Algorithms – Cormen et al. (Livro): Capítulos sobre Insertion, Merge e QuickSort.
+
