@@ -1,0 +1,22 @@
+Qual a diferença entre alocação estática e alocação dinâmica?
+
+Alocação Estática
+A memória é reservada em tempo de compilação, ou seja, antes da execução do programa.
+O tamanho e a localização da memória são fixos — não podem ser modificados em tempo de execução
+A alocação e liberação (ou duração) são gerenciadas automaticamente (ex: variáveis globais, variáveis estáticas) ou fazem parte do escopo de execução.
+Vantagens: acesso mais rápido, gerenciamento simples.
+Desvantagens: pouca flexibilidade, possível desperdício de memória se o tamanho for superestimado.
+
+Alocação Dinâmica
+
+A memória é reservada em tempo de execução, ou seja, enquanto o programa está rodando e de acordo com necessidades que podem não ser conhecidas na compilação.
+O tamanho pode ser alterado (ou seja, você pode alocar mais ou liberar) conforme a necessidade do programa.
+O programador normalmente deve explicitamente alocar e liberar a memória (ex: em C usar malloc, free).
+Vantagens: grande flexibilidade, uso mais eficiente da memória (em situações variáveis).
+Desvantagens: overhead maior (tempo de alocação/desalocação), risco de vazamentos de memória (“memory leaks”) se o programador esquecer de liberar.
+
+REFERENCIAS 
+
+GeeksforGeeks — “Difference between Static and Dynamic Memory Allocation in C” — indica que na alocação estática o tamanho é fixo em tempo de compilação, enquanto na dinâmica a alocação ocorre em tempo de execução.
+GNU Project / GNU C Library Manual — “Memory Allocation and C” — diz que “Static allocation is what happens when you declare a static or global variable… of a fixed size… allocated once, when your program is started”
+BYJU’S — Artigo “Difference between Static and Dynamic Memory Allocation” — mostra comparação direta (tempo de alocação, flexibilidade, localização) entre as duas abordagens.
