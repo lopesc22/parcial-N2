@@ -1,0 +1,42 @@
+O que significa alocação estática de memória para um conjunto de elementos?
+
+
+Principais características
+O tamanho do conjunto de elementos deve ser conhecido já no momento da compilação, porque a memória será alocada com esse tamanho fixo. 
+GeeksforGeeks
++2
+gnu.org
++2
+alocação ocorre antes da execução do programa (ou no início dela), e permanece até que o programa termine. 
+gnu.org
++2
+GeeksforGeeks
++2
+Endereço e layout da memória são fixos, gerenciados pelo compilador/linker, não exigindo (nem permitindo) que o programador libere ou redimensione essa memória durante a execução. 
+GeeksforGeeks
++1
+É simples e rápido no acesso (já que não há overhead de alocação em tempo de execução), mas menos flexível (não permite ajustar o tamanho ou reaproveitar espaço facilmente). 
+GeeksforGeeks
++1
+
+emplificação
+
+Por exemplo, em C:
+
+int array[100];
+Aqui o vetor array tem tamanho fixo de 100 elementos — esse espaço já está definido em compilação. A memória para array está alocada estaticamente.
+🔍 Contextualização com “conjunto de elementos”
+Quando falamos “um conjunto de elementos”, podemos pensar em um array, vetor ou outro bloco de múltiplos itens (por exemplo, 50 registros). Se esse conjunto vai ser alocado estaticamente:
+Você deve saber quantos elementos serão alocados (ex: 50).
+O tamanho total em memória (50 × tamanho do item) já é determinado em compilação.
+Em execução, o programa não pode “crescer” esse conjunto além dos 50 pré-definidos, nem “liberar” parte desse bloco para outro uso (pelo menos não de forma automática pelo próprio sistema de alocação estática).
+A vantagem: implementação mais simples, acesso mais direto. A desvantagem: se você superestimou ou subestimou o número de elementos, pode haver desperdício de memória ou limitação de capacidade. 
+
+REFERENCIAS 
+
+A biblioteca GNU C informa que: “Static allocation is what happens when you declare a static or global variable. Each static or global variable defines one block of space, of a fixed size. The space is allocated once, when your program is started … and is never freed.”
+
+O artigo do GeeksforGeeks define: “When everything is done at compile time (or) before run time, it is called static memory allocation.”
+
+A página sobre C no Wikipedia explica: “Static memory allocation: space for the object is provided in the binary at compile-time; these objects have an extent (or lifetime) as long as the binary which contains them is loaded into memory.”
+
