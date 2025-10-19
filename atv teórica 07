@@ -1,0 +1,34 @@
+O que é uma lista simplesmente encadeada? Apresente um diagrama para ilustrar 
+essa estrutura de dados. 
+
+Uma lista simplesmente encadeada (ou singly linked list) é uma estrutura de dados linear em que cada elemento, chamado de nó, contém:
+Dado: a informação que se quer armazenar.
+Ponteiro (ou referência) para o próximo nó: indica onde está o próximo elemento na lista.
+
+Características principais
+Linear: os nós são acessados sequencialmente a partir do primeiro nó (cabeça da lista).
+Dinâmica: o tamanho da lista pode crescer ou diminuir conforme necessário.
+Acesso: para acessar um nó específico, é necessário percorrer a lista desde o início.
+Inserção/remoção: eficiente, especialmente no início ou no meio da lista, pois não requer deslocar elementos como em vetores.
+
+[ Dado | Próximo ] -> [ Dado | Próximo ] -> [ Dado | Próximo ] -> NULL
+[ 10 | Next ] -> [ 20 | Next ] -> [ 30 | Next ] -> NULL
+Cada bloco representa um nó.
+Next (ou “próximo”) aponta para o próximo nó.
+O último nó aponta para NULL, indicando o fim da lista.
+
+Diagrama ilustrativo
+Abaixo está um diagrama representando uma lista simplesmente encadeada com três nós:
+[ Dado | Próximo ] → [ Dado | Próximo ] → [ Dado | NULL ]
+Cada bloco representa um nó, onde:
+Dado: valor armazenado no nó.
+
+REFERENCIAS 
+GeeksforGeeks: Apresenta uma explicação detalhada sobre listas simplesmente encadeadas, incluindo diagramas e implementações em várias linguagens de programação
+IME-USP: Oferece uma introdução teórica às listas encadeadas, com exemplos práticos e diagramas explicativos.
+Wikiversity: Fornece uma visão geral das listas encadeadas, abordando suas características e operações básicas.
+
+
+
+
+Próximo: ponteiro para o próximo nó na lista
