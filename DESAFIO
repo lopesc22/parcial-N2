@@ -1,0 +1,190 @@
+Questão 03.
+Você foi contratado como estagiário em um laboratório de automação industrial. Um dos
+sistemas legados da empresa controla um braço robótico que mistura componentes
+químicos. Para evitar ambiguidades com parênteses e precedência de operadores, as
+fórmulas de mistura são enviadas para a máquina em notação posfixa, também
+conhecida como Notação Polonesa Reversa (RPN).
+Por exemplo, para misturar 20ml de um reagente com o resultado da soma de 10ml e 5ml
+de outro, a fórmula infixa 20 + (10 + 5) seria representada em RPN como 10 5 + 20 +.
+O software atual que interpreta essas fórmulas está apresentando falhas e precisa ser
+reescrito. Sua tarefa é desenvolver, em C, um programa robusto que receba uma expressão
+matemática em RPN como uma string, a avalie e retorne o resultado final.
+O Desafio
+Implementar um programa em C que avalia expressões matemáticas na notação posfixa.
+O programa deve receber a expressão como um único argumento de linha de comando.
+(Atendendo todos os requisitos):
+ 
+Código:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+ 
+Typedef struct Node {
+   Double value;
+   Struct Node* next;
+} Node;
+ 
+Typedef struct {
+   Node* top;
+} Stack;
+ 
+Stack* createStack() {
+   Stack* stack = (Stack*) malloc(sizeof(Stack));
+   If (!stack) {
+       Fprintf(stderr, “Erro ao alocar memória para a pilha.\n”);
+       Exit(1);
+   }
+   Stack->top = NULL;
+   Return stack;
+}
+ 
+Void push(Stack* stack, double value) {
+   Node* newNode = (Node*) malloc(sizeof(Node));
+   If (!newNode) {
+       Fprintf(stderr, “Erro ao alocar memória para o nó.\n”);
+       Exit(1);
+   }
+   newNode->value = value;
+   newNode->next = stack->top;
+   stack->top = newNode;
+}
+ 
+Double pop(Stack* stack) {
+   If (stack->top == NULL) {
+       Fprintf(stderr, “Erro: Expressao malformada (operandos insuficientes).\n”);
+       Exit(1);
+   }
+   Node* temp = stack->top;
+   Double value = temp->value;
+   Stack->top = temp->next;
+   Free(temp);
+   Return value;
+}
+ 
+Int isEmpty(Stack* stack) {
+   Return stack->top == NULL;
+}
+ 
+Void freeStack(Stack* stack) {
+   While (!isEmpty(stack)) {
+       Pop(stack);
+   }
+   Free(stack);
+}
+ 
+Double evaluateRPN(char* expression) {
+   Stack* stack = createStack();
+   Char* token = strtok(expression, “ “);
+ 
+   While (token != NULL) {
+       If (isdigit(token[0]) ||
+           (token[0] == ‘-‘ && isdigit(token[1]))) {
+           Push(stack, atof(token));
+       }
+       Else if (strlen(token) == 1) {
+           Double val2, val1, result;
+           Switch (token[0]) {
+               Case ‘+’:
+                   Val2 = pop(stack);
+                   Val1 = pop(stack);
+                   Result = val1 + val2;
+                   Push(stack, result);
+                   Break;
+ 
+               Case ‘-‘:
+                   Val2 = pop(stack);
+                   Val1 = pop(stack);
+                   Result = val1 – val2;
+                   Push(stack, result);
+                   Break;
+ 
+               Case ‘*’:
+                   Val2 = pop(stack);
+                   Val1 = pop(stack);
+                   Result = val1 * val2;
+                   Push(stack, result);
+                   Break;
+ 
+               Case ‘/’:
+                   Val2 = pop(stack);
+                   If (val2 == 0) {
+                       Fprintf(stderr, “Erro: Tentativa de divisao por zero.\n”);
+                       freeStack(stack);
+                       exit(1);
+                   }
+                   Val1 = pop(stack);
+                   Result = val1 / val2;
+                   Push(stack, result);
+                   Break;
+ 
+               Default:
+                   Fprintf(stderr, “Erro: Operador invalido ‘%s’.\n”, token);
+                   freeStack(stack);
+                   exit(1);
+           }
+       }
+       Else {
+           Fprintf(stderr, “Erro: Token invalido ‘%s’.\n”, token);
+           freeStack(stack);
+           exit(1);
+       }
+ 
+       Token = strtok(NULL, “ “);
+   }
+ 
+   If (isEmpty(stack)) {
+       Fprintf(stderr, “Erro: Expressao vazia ou malformada.\n”);
+       Exit(1);
+   }
+ 
+   Double finalResult = pop(stack);
+ 
+   If (!isEmpty(stack)) {
+       Fprintf(stderr, “Erro: Expressao malformada (operandos extras).\n”);
+       freeStack(stack);
+       exit(1);
+   }
+ 
+   freeStack(stack);
+   return finalResult;
+}
+ 
+Int main(int argc, char* argv[]) {
+   If (argc != 2) {
+       Printf(“Uso: %s \”<expressao em notacao pos-fixa>\”\n”, argv[0]);
+       Printf(“Exemplo: %s \”10 5 + 20 +\”\n”, argv[0]);
+       Return 1;
+   }
+ 
+   Char* exprCopy = strdup(argv[1]);
+   If (!exprCopy) {
+       Fprintf(stderr, “Erro ao alocar memória.\n”);
+       Return 1;
+   }
+ 
+   Double resultado = evaluateRPN(exprCopy);
+   Printf(“Resultado: %.2f\n”, resultado);
+ 
+   Free(exprCopy);
+   Return 0;
+}
+ 
+Como usar:
+Gcc avaliador.c -o avaliador
+ 
+Exemplos:
+./avaliador "10 5 +"
+# Resultado: 15.00
+ 
+./avaliador "5 1 2 + 4 * + 3 -"
+# Resultado: 14.00
+ 
+./avaliador "10 4 2 / +"
+# Resultado: 12.00
+ 
+./avaliador "10 5 + *"
+# Erro: Expressao malformada (operandos insuficientes).
+ 
+./avaliador "10 0 /"
+# Erro: Tentativa de divisao por zero.
